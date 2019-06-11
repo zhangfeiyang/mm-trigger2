@@ -20,8 +20,8 @@ from tensorflow.keras import backend as K
 def custom_activation(x):
 
     #return K.sigmoid(x) 
-    return K.exp(x)
 
+    return K.exp(x)
 
 def create_model():
 
@@ -29,7 +29,7 @@ def create_model():
         keras.layers.Flatten(input_shape=(325, )),
         keras.layers.Dense(100, activation=tf.nn.relu),
         keras.layers.Dense(100, activation=custom_activation),
-        keras.layers.Dense(10, activation=custom_activation),
+        keras.layers.Dense(50, activation=tf.nn.softsign),
         keras.layers.Dense(10, activation=tf.nn.relu),
         keras.layers.Dense(2, activation=tf.nn.softmax)
     ])        
